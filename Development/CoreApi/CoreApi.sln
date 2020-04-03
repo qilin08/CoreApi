@@ -5,15 +5,15 @@ VisualStudioVersion = 16.0.29926.136
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.Web", "Core.Web\Core.Web.csproj", "{A1618653-B6D3-4902-A426-80C8F89F04B3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Entity", "Core.Entity\Core.Entity.csproj", "{DA0D45F8-3208-45AF-A70F-632299D1AC0E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.Entity", "Core.Entity\Core.Entity.csproj", "{DA0D45F8-3208-45AF-A70F-632299D1AC0E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Service", "Core.Service\Core.Service.csproj", "{0F8C1236-28C2-40FD-8CC7-4ECA87A8BCBD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.Service", "Core.Service\Core.Service.csproj", "{0F8C1236-28C2-40FD-8CC7-4ECA87A8BCBD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.IService", "Core.IService\Core.IService.csproj", "{99CDA8A3-6B09-47D7-A847-0C9CE4372ABE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.IService", "Core.IService\Core.IService.csproj", "{99CDA8A3-6B09-47D7-A847-0C9CE4372ABE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Utils", "Core.Utils\Core.Utils.csproj", "{A5C20EFE-73F8-4EC1-872F-E91D1FA2CED4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.Utils", "Core.Utils\Core.Utils.csproj", "{A5C20EFE-73F8-4EC1-872F-E91D1FA2CED4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Workflow", "Core.Workflow\Core.Workflow.csproj", "{8357E8D8-6B3D-44DD-B86D-5D18EE1E8C0B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.Workflow", "Core.Workflow\Core.Workflow.csproj", "{8357E8D8-6B3D-44DD-B86D-5D18EE1E8C0B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
