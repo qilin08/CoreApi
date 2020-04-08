@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using Core.Entity;
 using Core.IService;
 using Core.Service;
+using CoreApi.IService.Email;
+using CoreApi.Service.Email;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -31,10 +33,12 @@ namespace Core.Web
             services.AddControllers();
 
             services.AddScoped<IDemo, Demo>();
-            services.AddDbContext<CoreDbContext>(options =>
-            {
-                options.UseSqlite("Data Source = routine.db");
-            });
+            services.AddScoped<IEmail, Email>();
+
+            //services.AddDbContext<CoreDbContext>(options =>
+            //{
+            //    options.UseSqlite("Data Source = routine.db");
+            //});
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

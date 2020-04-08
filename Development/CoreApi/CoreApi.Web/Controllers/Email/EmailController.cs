@@ -1,0 +1,35 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Core.Entity.Dto;
+using CoreApi.IService.Email;
+using Microsoft.AspNetCore.Mvc;
+
+namespace CoreApi.Web.Controllers.Email
+{
+    /// <summary>
+    /// 邮件相关服务接口
+    /// </summary>
+    [ApiController]
+    [Route("api/[controller]")]
+    public class EmailController : ControllerBase
+    {
+        private readonly IEmail _email;
+
+        public EmailController(IEmail email)
+        {
+            _email = email ?? throw new ArgumentNullException(nameof(email));
+        }
+
+        /// <summary>
+        /// 邮箱自动登陆
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost("[action]")]
+        public Result EmailAutoLogin()
+        {
+            return _email.EmailAutoLogin();
+        }
+    }
+}
