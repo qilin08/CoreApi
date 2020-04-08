@@ -15,5 +15,11 @@ namespace CoreApi.IService.Email
         /// </summary>
         /// <returns></returns>
         Result EmailAutoLogin();
+
+        /// <summary>
+        /// 设置邮箱登录相关信息
+        /// </summary>
+        /// <returns></returns>
+        Result SetEmailInfo();
     }
 }

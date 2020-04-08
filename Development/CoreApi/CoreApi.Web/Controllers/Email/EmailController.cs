@@ -31,5 +31,15 @@ namespace CoreApi.Web.Controllers.Email
         {
             return _email.EmailAutoLogin();
         }
+
+        /// <summary>
+        /// 设置邮箱登录相关信息
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost("[action]")]
+        public Result SetEmailInfo()
+        {
+            return _email.SetEmailInfo();
+        }
     }
 }

@@ -21,7 +21,21 @@ namespace CoreApi.Service.Email
 
 
 
-            result.Message = result.IsSuccess ? "邮箱自动登陆成功！" : "邮箱自动登陆失败！";
+            result.Message = result.IsSuccess ? "邮箱自动登录成功！" : "邮箱自动登录失败！";
+            return result;
+        }
+
+        /// <summary>
+        /// 设置邮箱登录相关信息
+        /// </summary>
+        /// <returns></returns>
+        public Result SetEmailInfo()
+        {
+            var result = new Result();
+
+
+
+            result.Message = result.IsSuccess ? "邮箱登录相关信息设置成功！" : "邮箱登录相关信息设置失败！";
             return result;
         }
     }
