@@ -18,5 +18,12 @@ namespace CoreApi.Entity
 
         public DbSet<Disease> Disease { get; set; }
 
+        #region Sys
+
+        public DbSet<Sys_ConfigValues> Sys_ConfigValues { get; set; }
+
+        #endregion
+
+
     }
 }
