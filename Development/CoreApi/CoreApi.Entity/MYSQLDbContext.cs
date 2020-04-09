@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using CoreApi.Entity.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace CoreApi.Entity
@@ -14,6 +15,8 @@ namespace CoreApi.Entity
         {
 
         }
+
+        public DbSet<Disease> Disease { get; set; }
 
     }
 }

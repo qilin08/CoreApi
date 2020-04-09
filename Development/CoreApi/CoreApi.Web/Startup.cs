@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Core.Entity;
 using Core.IService;
 using Core.Service;
+using CoreApi.Entity;
 using CoreApi.IService.Email;
 using CoreApi.Service.Email;
 using Microsoft.AspNetCore.Builder;
@@ -39,6 +40,9 @@ namespace Core.Web
             //{
             //    options.UseSqlite("Data Source = routine.db");
             //});
+
+            // 连接MySql数据库
+            services.AddDbContext<MYSQLDbContext>(options => options.UseMySql(Configuration.GetConnectionString("MySqlContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
