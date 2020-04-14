@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Core.Entity.Dto;
+using CoreApi.Entity.Dto;
 using CoreApi.IService.Email;
 using Microsoft.AspNetCore.Mvc;
 
@@ -37,9 +38,19 @@ namespace CoreApi.Web.Controllers.Email
         /// </summary>
         /// <returns></returns>
         [HttpPost("[action]")]
-        public Result SetEmailInfo()
+        public Result SetEmailInfo(EmailAccountInfo info)
         {
-            return _email.SetEmailInfo();
+            return _email.SetEmailInfo(info);
+        }
+
+        /// <summary>
+        /// 邮件发送
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost("[action]")]
+        public Result SendMail(EmailInfo info)
+        {
+            return _email.SendMail(info);
         }
     }
 }

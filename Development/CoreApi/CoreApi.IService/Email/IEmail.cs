@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using CoreApi.Entity.Dto;
 
 namespace CoreApi.IService.Email
 {
@@ -20,6 +21,12 @@ namespace CoreApi.IService.Email
         /// 设置邮箱登录相关信息
         /// </summary>
         /// <returns></returns>
-        Result SetEmailInfo();
+        Result SetEmailInfo(EmailAccountInfo info);
+
+        /// <summary>
+        /// 邮件发送
+        /// </summary>
+        /// <returns></returns>
+        Result SendMail(EmailInfo info);
     }
 }

@@ -8,4 +8,8 @@
     <ProjectReference Include="..\CoreApi.IService\CoreApi.IService.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Cache\" />
+  </ItemGroup>
+
 </Project>

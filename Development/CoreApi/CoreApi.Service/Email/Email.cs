@@ -3,6 +3,18 @@ using System.Collections.Generic;
 using System.Text;
 using Core.Entity.Dto;
 using CoreApi.IService.Email;
+using System.Net;
+using System.Net.Mail;
+using System.IO;
+using System.Linq;
+using System.Net.Mime;
+using CoreApi.Entity;
+using CoreApi.Entity.Category;
+using CoreApi.Entity.Dto;
+using CoreApi.Entity.Models;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Internal;
+using Newtonsoft.Json;
 
 namespace CoreApi.Service.Email
 {
@@ -11,6 +23,14 @@ namespace CoreApi.Service.Email
     /// </summary>
     public class Email : IEmail
     {
+
+        private readonly MYSQLDbContext _context;
+
+        public Email(MYSQLDbContext context)
+        {
+            _context = context;
+        }
+
         /// <summary>
         /// 邮箱自动登陆
         /// </summary>
@@ -26,15 +46,64 @@ namespace CoreApi.Service.Email
         }
 
         /// <summary>
+        /// 邮件发送
+        /// </summary>
+        /// <returns></returns>
+        public Result SendMail(EmailInfo info)
+        {
+            var result = new Result();
+            var emailAccountInfo =
+                _context.Sys_ConfigValues.FirstOrDefault(x => x.Key == (int) SystemCfgType.EmailAccount);
+
+            if (emailAccountInfo==null)
+            {
+                result.IsSuccess = false;
+                result.Message = "请配置邮箱信息!";
+            }
+
+            try
+            {
+
+            }
+            catch (Exception e)
+            {
+                return new Result(false, "邮件发送异常，请检查邮箱配置，具体异常原因请查看日志！");
+            }
+
+            result.Message = result.IsSuccess ? "邮件发送成功！" : "邮件发送失败！";
+            return result;
+        }
+
+        /// <summary>
         /// 设置邮箱登录相关信息
         /// </summary>
         /// <returns></returns>
-        public Result SetEmailInfo()
+        public Result SetEmailInfo(EmailAccountInfo info)
         {
             var result = new Result();
+            if (info == null)
+            {
+                result.IsSuccess = false;
+                result.Message = "邮箱登录相关信息为空，请检查后重试！";
+                return result;
+            }
 
+            var property0 = JsonConvert.SerializeObject(info);
+            var sysValue = _context.Sys_ConfigValues.FirstOrDefault(x => x.Key == (int)SystemCfgType.EmailAccount);
+            if (sysValue == null)
+            {
+                _context.Sys_ConfigValues.Add(new Sys_ConfigValues()
+                {
+                    Key = (int)SystemCfgType.EmailAccount,
+                    Property0 = property0
+                });
+            }
+            else
+            {
+                sysValue.Property0 = property0;
+            }
 
-
+            result.IsSuccess = _context.SaveChanges() > 0;
             result.Message = result.IsSuccess ? "邮箱登录相关信息设置成功！" : "邮箱登录相关信息设置失败！";
             return result;
         }

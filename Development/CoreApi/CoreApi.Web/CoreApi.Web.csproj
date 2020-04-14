@@ -10,5 +10,9 @@
     <ProjectReference Include="..\CoreApi.Service\CoreApi.Service.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Controllers\Auth\" />
+  </ItemGroup>
+
 
 </Project>

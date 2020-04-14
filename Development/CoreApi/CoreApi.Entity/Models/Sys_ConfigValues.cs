@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace CoreApi.Entity.Models
@@ -9,6 +10,7 @@ namespace CoreApi.Entity.Models
     /// </summary>
     public class Sys_ConfigValues
     {
+        [Key]
         public int IID { get; set; }
         public int Key { get; set; }
         public string Property0 { get; set; }

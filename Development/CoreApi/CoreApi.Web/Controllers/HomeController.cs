@@ -14,7 +14,6 @@ namespace Core.Web.Controllers
     {
         private readonly MYSQLDbContext _context;
 
-        //注入MoviesContext
         public HomeController(MYSQLDbContext context)
         {
             _context = context;
