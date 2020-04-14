@@ -38,7 +38,7 @@ namespace CoreApi.Entity.Dto
         /// <summary>
         /// 是否使用SSL
         /// </summary>
-        public bool IsSSl { get; set; }
+        public bool IsSSL { get; set; }
 
     }
 }

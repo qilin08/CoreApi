@@ -64,7 +64,7 @@ namespace CoreApi.Service.Email
                 //初始化SMTP类
                 SmtpClient smtp = new SmtpClient(emailInfo.SendingServer);
                 //开启安全连接
-                smtp.EnableSsl = emailInfo.IsSSl;
+                smtp.EnableSsl = emailInfo.IsSSL;
                 //创建用户凭证
                 smtp.Credentials = new NetworkCredential(emailInfo.EmailAccount, emailInfo.PassWord);
                 //使用网络传送
