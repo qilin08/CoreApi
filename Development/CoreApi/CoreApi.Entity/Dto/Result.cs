@@ -13,8 +13,6 @@ namespace Core.Entity.Dto
 
         private string message = string.Empty;
 
-        private int code = 200;
-
         private object data;
 
         public Result()
@@ -36,15 +34,6 @@ namespace Core.Entity.Dto
         {
             get { return message; }
             set { message = value; }
-        }
-
-        /// <summary>
-        /// 返回结果状态码
-        /// </summary>
-        public int Code
-        {
-            get { return code; }
-            set { code = value; }
         }
 
         public object Data
