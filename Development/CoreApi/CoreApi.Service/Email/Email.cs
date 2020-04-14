@@ -12,8 +12,6 @@ using CoreApi.Entity;
 using CoreApi.Entity.Category;
 using CoreApi.Entity.Dto;
 using CoreApi.Entity.Models;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Internal;
 using Newtonsoft.Json;
 
 namespace CoreApi.Service.Email
@@ -75,6 +73,22 @@ namespace CoreApi.Service.Email
         }
 
         /// <summary>
+        /// 获取邮箱登录相关信息
+        /// </summary>
+        /// <returns></returns>
+        public Result GetEmailInfo()
+        {
+            var sysValue =  _context.Sys_ConfigValues.FirstOrDefault(x => x.Key == (int)SystemCfgType.EmailAccount);
+            if (sysValue != null&&!string.IsNullOrEmpty(sysValue.Property0))
+            {
+                var info = JsonConvert.DeserializeObject<EmailAccountInfo>(sysValue.Property0);
+                return new Result(true,"",info);
+            }
+
+            return new Result(false, "获取邮箱相关信息失败，信息未配置！");
+        }
+
+        /// <summary>
         /// 设置邮箱登录相关信息
         /// </summary>
         /// <returns></returns>
@@ -104,7 +118,7 @@ namespace CoreApi.Service.Email
             }
 
             result.IsSuccess = _context.SaveChanges() > 0;
-            result.Message = result.IsSuccess ? "邮箱登录相关信息设置成功！" : "邮箱登录相关信息设置失败！";
+            result.Message = result.IsSuccess ? "邮箱登录相关信息设置/更新成功！" : "邮箱登录相关信息设置/更新失败！";
             return result;
         }
     }

@@ -28,5 +28,11 @@ namespace CoreApi.IService.Email
         /// </summary>
         /// <returns></returns>
         Result SendMail(EmailInfo info);
+
+        /// <summary>
+        /// 获取邮箱登录相关信息
+        /// </summary>
+        /// <returns></returns>
+        Result GetEmailInfo();
     }
 }

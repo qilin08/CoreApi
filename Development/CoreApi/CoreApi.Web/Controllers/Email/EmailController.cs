@@ -44,6 +44,16 @@ namespace CoreApi.Web.Controllers.Email
         }
 
         /// <summary>
+        /// 获取邮箱登录相关信息
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("[action]")]
+        public Result GetEmailInfo()
+        {
+            return _email.GetEmailInfo();
+        }
+
+        /// <summary>
         /// 邮件发送
         /// </summary>
         /// <returns></returns>

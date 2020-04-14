@@ -16,6 +16,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
+using Pomelo.EntityFrameworkCore.MySql.Storage;
 
 namespace Core.Web
 {
@@ -36,13 +38,18 @@ namespace Core.Web
             services.AddScoped<IDemo, Demo>();
             services.AddScoped<IEmail, Email>();
 
+            // 连接MySql数据库
+            services.AddDbContextPool<MYSQLDbContext>(options => options
+                    .UseMySql(Configuration.GetConnectionString("MySqlContext"), mySqlOptions => mySqlOptions
+                        // replace with your Server Version and Type
+                        .ServerVersion(new ServerVersion(new Version(8, 0, 19), ServerType.MySql))
+                    ));
+
             //services.AddDbContext<CoreDbContext>(options =>
             //{
             //    options.UseSqlite("Data Source = routine.db");
             //});
 
-            // 连接MySql数据库
-            services.AddDbContext<MYSQLDbContext>(options => options.UseMySql(Configuration.GetConnectionString("MySqlContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
