@@ -59,6 +59,62 @@ namespace CoreApi.Service.Email
                 result.Message = "请配置邮箱信息!";
             }
 
+            //创建邮件
+            var message = new MailMessage
+            {
+                Priority = MailPriority.Normal,
+                From = new MailAddress(info.From),
+                Subject = info.Subject,
+                Body = info.Body,
+
+                #region 邮件相关配置
+
+                //邮件的优先级，分为 Low, Normal, High，通常用 Normal即可
+                //对方回复邮件时默认的接收地址(不设置也是可以的哟)
+                //message.ReplyTo = new MailAddress(info.From);
+                //如果你的邮件标题包含中文，这里一定要指定，否则对方收到的极有可能是乱码。
+                //message.SubjectEncoding = Encoding.GetEncoding(936);
+                //邮件正文是否是HTML格式
+                //message.IsBodyHtml = false;
+                //获取或设置此电子邮件的发送通知。会有邮件通知到发送邮件箱；
+                DeliveryNotificationOptions = DeliveryNotificationOptions.OnSuccess,
+
+                #region 上传指定附件做邮件签名
+
+                ////先将要处理的图片作为附件添加--作为邮件签名
+                //Attachment attachment = new Attachment(@"C:\Users\SQL\Desktop\邮件签名.png");
+                //message.Attachments.Add(attachment);
+                ////相当与邮件内容定义成html
+                //message.IsBodyHtml = true;
+                ////这边邮件的内容就可以用html标签（img）来插入图片
+                ////attachment.contendid为附件固定的id
+                ////cid:邮件BASE64编码的某个位置.然后从这个位置上读图片的数据
+                //message.Body += "<br/><br/><img src=\"cid:" + attachment.ContentId + "\"/>";
+
+                #endregion
+
+                #endregion
+            };
+
+            // 多收件人
+            foreach (var item in info.To)
+            {
+                message.To.Add(new MailAddress(item));
+            }
+
+            // 多抄送人
+            foreach (var item in info.CC ?? new List<string>())
+            {
+                message.To.Add(new MailAddress(item));
+            }
+
+            // 附件
+            foreach (var item in info.Attachments ?? new List<string>())
+            {
+                //发送附加件
+                message.Attachments.Add(new Attachment(item));
+            }
+
             try
             {
                 //初始化SMTP类
@@ -69,59 +125,6 @@ namespace CoreApi.Service.Email
                 smtp.Credentials = new NetworkCredential(emailInfo.EmailAccount, emailInfo.PassWord);
                 //使用网络传送
                 smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
-
-                //创建邮件
-                MailMessage message = new MailMessage();
-
-                #region 邮件相关配置
-
-                //邮件的优先级，分为 Low, Normal, High，通常用 Normal即可
-                message.Priority = MailPriority.Normal;
-                //对方回复邮件时默认的接收地址(不设置也是可以的哟)
-                //message.ReplyTo = new MailAddress(info.From);
-                //如果你的邮件标题包含中文，这里一定要指定，否则对方收到的极有可能是乱码。
-                //message.SubjectEncoding = Encoding.GetEncoding(936);
-                //邮件正文是否是HTML格式
-                //message.IsBodyHtml = false;
-                //获取或设置此电子邮件的发送通知。会有邮件通知到发送邮件箱；
-                message.DeliveryNotificationOptions = DeliveryNotificationOptions.OnSuccess;
-
-                #region 上传指定附件做邮件签名
-                ////先将要处理的图片作为附件添加--作为邮件签名
-                //Attachment attachment = new Attachment(@"C:\Users\SQL\Desktop\邮件签名.png");
-                //message.Attachments.Add(attachment);
-                ////相当与邮件内容定义成html
-                //message.IsBodyHtml = true;
-                ////这边邮件的内容就可以用html标签（img）来插入图片
-                ////attachment.contendid为附件固定的id
-                ////cid:邮件BASE64编码的某个位置.然后从这个位置上读图片的数据
-                //message.Body += "<br/><br/><img src=\"cid:" + attachment.ContentId + "\"/>";
-                #endregion
-
-                #endregion
-
-                message.From = new MailAddress(info.From);
-                message.Subject = info.Subject;
-                message.Body = info.Body;
-                
-                // 多收件人
-                foreach (var item in info.To)
-                {
-                    message.To.Add(new MailAddress(item));
-                }
-
-                // 多抄送人
-                foreach (var item in info.CC??new List<string>())
-                {
-                    message.To.Add(new MailAddress(item));
-                }
-
-                // 附件
-                foreach (var item in info.Attachments ?? new List<string>())
-                {
-                    //发送附加件
-                    message.Attachments.Add(new Attachment(item));
-                }
 
                 //发送邮件
                 smtp.Send(message);
