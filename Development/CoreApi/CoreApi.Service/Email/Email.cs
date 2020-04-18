@@ -117,7 +117,7 @@ namespace CoreApi.Service.Email
                 }
 
                 // 附件
-                foreach (var item in info.Attachments)
+                foreach (var item in info.Attachments ?? new List<string>())
                 {
                     //发送附加件
                     message.Attachments.Add(new Attachment(item));
