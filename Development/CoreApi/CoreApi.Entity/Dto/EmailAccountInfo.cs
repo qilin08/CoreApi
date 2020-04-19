@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Text;
-
-namespace CoreApi.Entity.Dto
+﻿namespace CoreApi.Entity.Dto
 {
     /// <summary>
     /// 邮箱账号信息配置

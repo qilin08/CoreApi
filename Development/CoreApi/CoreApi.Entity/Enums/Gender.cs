@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace CoreApi.Entity.Enums
+﻿namespace CoreApi.Entity.Enums
 {
     /// <summary>
     /// 性别

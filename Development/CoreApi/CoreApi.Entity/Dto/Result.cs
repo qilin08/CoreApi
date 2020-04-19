@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Core.Entity.Dto
+﻿namespace CoreApi.Entity.Dto
 {
     /// <summary>
     /// 返回结果

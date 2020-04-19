@@ -1,7 +1,6 @@
-﻿using System;
-using Core.IService;
+﻿using CoreApi.IService;
 
-namespace Core.Service
+namespace CoreApi.Service
 {
     public class Demo : IDemo
     {

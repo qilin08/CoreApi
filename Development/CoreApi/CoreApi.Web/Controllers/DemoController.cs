@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Core.IService;
+using CoreApi.IService;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Core.Web.Controllers
+namespace CoreApi.Web.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]

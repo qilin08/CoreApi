@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using CoreApi.Entity;
 using CoreApi.Entity.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Core.Web.Controllers
+namespace CoreApi.Web.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]

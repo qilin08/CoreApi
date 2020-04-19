@@ -1,25 +1,19 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Core.Entity;
-using Core.IService;
-using Core.Service;
 using CoreApi.Entity;
+using CoreApi.IService;
 using CoreApi.IService.Email;
+using CoreApi.Service;
 using CoreApi.Service.Email;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 using Pomelo.EntityFrameworkCore.MySql.Storage;
 
-namespace Core.Web
+namespace CoreApi.Web
 {
     public class Startup
     {

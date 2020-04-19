@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Core.IService
+﻿namespace CoreApi.IService
 {
     public interface IDemo
     {

@@ -1,13 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
-using Core.Entity.Dto;
 using CoreApi.IService.Email;
 using System.Net;
 using System.Net.Mail;
-using System.IO;
 using System.Linq;
-using System.Net.Mime;
 using CoreApi.Entity;
 using CoreApi.Entity.Category;
 using CoreApi.Entity.Dto;
@@ -118,14 +114,16 @@ namespace CoreApi.Service.Email
             try
             {
                 //初始化SMTP类
-                SmtpClient smtp = new SmtpClient(emailInfo.SendingServer);
-                //开启安全连接
-                smtp.EnableSsl = emailInfo.IsSSL;
-                //创建用户凭证
-                smtp.Credentials = new NetworkCredential(emailInfo.EmailAccount, emailInfo.PassWord);
-                //使用网络传送
-                smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
-
+                var smtp = new SmtpClient(emailInfo.SendingServer)
+                {
+                    //开启安全连接
+                    EnableSsl = emailInfo.IsSSL,
+                    //创建用户凭证
+                    Credentials = new NetworkCredential(emailInfo.EmailAccount, emailInfo.PassWord),
+                    //使用网络传送
+                    DeliveryMethod = SmtpDeliveryMethod.Network
+                };
+                
                 //发送邮件
                 smtp.Send(message);
             }
@@ -190,13 +188,9 @@ namespace CoreApi.Service.Email
         private EmailAccountInfo GetEmailAccountInfo()
         {
             var sysValue = _context.Sys_ConfigValues.FirstOrDefault(x => x.Key == (int)SystemCfgType.EmailAccount);
-            if (sysValue != null && !string.IsNullOrEmpty(sysValue.Property0))
-            {
-                var info = JsonConvert.DeserializeObject<EmailAccountInfo>(sysValue.Property0);
-                return info;
-            }
-
-            return null;
+            if (sysValue == null || string.IsNullOrEmpty(sysValue.Property0)) return null;
+            var info = JsonConvert.DeserializeObject<EmailAccountInfo>(sysValue.Property0);
+            return info;
         }
     }
 }

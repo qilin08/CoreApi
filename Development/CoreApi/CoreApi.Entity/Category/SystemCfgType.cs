@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace CoreApi.Entity.Category
+﻿namespace CoreApi.Entity.Category
 {
     /// <summary>
     /// 系统配置项

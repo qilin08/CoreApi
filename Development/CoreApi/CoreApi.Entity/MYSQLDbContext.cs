@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using CoreApi.Entity.Models;
+﻿using CoreApi.Entity.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace CoreApi.Entity

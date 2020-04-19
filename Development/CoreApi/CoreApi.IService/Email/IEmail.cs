@@ -1,8 +1,4 @@
-﻿using Core.Entity.Dto;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using CoreApi.Entity.Dto;
+﻿using CoreApi.Entity.Dto;
 
 namespace CoreApi.IService.Email
 {
