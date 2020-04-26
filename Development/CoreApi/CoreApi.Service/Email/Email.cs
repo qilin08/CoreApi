@@ -144,7 +144,7 @@ namespace CoreApi.Service.Email
         {
             var info = GetEmailAccountInfo();
 
-            return new Result(info == null, info == null ? "获取邮箱相关信息失败，信息未配置！" : "", info);
+            return new Result(info != null, info == null ? "获取邮箱相关信息失败，信息未配置！" : "", info);
         }
 
         /// <summary>
