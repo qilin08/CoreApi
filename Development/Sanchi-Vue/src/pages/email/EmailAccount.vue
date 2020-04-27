@@ -1,5 +1,6 @@
 <template>
   <div class="account">
+    <el-form :model="form">
     <div>
       <label>邮箱账号</label>
       <input v-model="EmailAccount">
@@ -22,8 +23,12 @@
     </div>
     <div>
       <label>是否使用SSL</label>
-      <input v-model="IsSSL">
+<!--      <input v-model="IsSSL">-->
+      <el-radio v-model="IsSSL" label='1'>是</el-radio>
+      <el-radio v-model="IsSSL" label='0'>否</el-radio>
     </div>
+    </el-form>
+    <el-button @click="fnSaveInfo">更新</el-button>
 
   </div>
 </template>
@@ -38,7 +43,8 @@
         EmailType: '',
         PickUpServer: '',
         SendingServer: '',
-        IsSSL: '',
+        IsSSL: '1',
+        form:{}
       }
     },
     //在这里调用ajax请求方法
@@ -60,7 +66,7 @@
           this.EmailType = _data.emailType;
           this.PickUpServer = _data.pickUpServer;
           this.SendingServer = _data.sendingServer;
-          this.IsSSL = _data.isSSL;
+          this.IsSSL = _data.isSSL?'1':'0';
         }).catch(function (err) {
           console.log(err)
         });
@@ -76,13 +82,15 @@
             EmailType: this.EmailType,
             PickUpServer: this.PickUpServer,
             SendingServer: this.SendingServer,
-            IsSSL: this.IsSSL
+            IsSSL: this.IsSSL==='1'?true:false
           },
         }).then(function (response) {
           console.log(response);
         }).catch(function (err) {
           console.log(err)
         });
+
+        this.fnGetInfo();
       }
     }
 
