@@ -2,33 +2,32 @@
   <div class="account">
     <el-form :model="form">
     <div>
-      <label>邮箱账号</label>
+      <label>邮箱账号:</label>
       <input v-model="EmailAccount">
     </div>
     <div>
-      <label>用户密码</label>
+      <label>用户密码:</label>
       <input v-model="PassWord" type="password">
     </div>
     <div>
-      <label>邮箱类型</label>
+      <label>邮箱类型:</label>
       <input v-model="EmailType">
     </div>
     <div>
-      <label>收件服务器</label>
+      <label>收件服务器:</label>
       <input v-model="PickUpServer">
     </div>
     <div>
-      <label>发件服务器</label>
+      <label>发件服务器:</label>
       <input v-model="SendingServer">
     </div>
     <div>
-      <label>是否使用SSL</label>
-<!--      <input v-model="IsSSL">-->
+      <label>是否使用SSL:</label>
       <el-radio v-model="IsSSL" label='1'>是</el-radio>
       <el-radio v-model="IsSSL" label='0'>否</el-radio>
     </div>
+      <el-button @click="fnSaveInfo" type="primary">更新</el-button>
     </el-form>
-    <el-button @click="fnSaveInfo">更新</el-button>
 
   </div>
 </template>
