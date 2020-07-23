@@ -1,4 +1,14 @@
-﻿using System.Collections.Generic;
+﻿/*********************************************************************************** 
+ *   Filename :EmailInfo  
+ *   Date:2020/07/23 17:11:32 
+ *   Machinename:DESKTOP-28ROJ1R 
+ *   Created by: qlSun 
+ *   Description : 
+ * 
+ *   ChangeLog: 
+ *   2020/07/23 17:11:32: Created! 
+ ************************************************************************************/
+using System.Collections.Generic;
 
 namespace CoreApi.Entity.Dto
 {

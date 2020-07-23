@@ -1,4 +1,14 @@
-﻿using System;
+﻿/*********************************************************************************** 
+ *   Filename :Email  
+ *   Date:2020/07/23 17:11:32 
+ *   Machinename:DESKTOP-28ROJ1R 
+ *   Created by: qlSun 
+ *   Description : 
+ * 
+ *   ChangeLog: 
+ *   2020/07/23 17:11:32: Created! 
+ ************************************************************************************/
+using System;
 using System.Collections.Generic;
 using CoreApi.IService.Email;
 using System.Net;

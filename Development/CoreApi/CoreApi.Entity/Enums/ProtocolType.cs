@@ -1,6 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿/*********************************************************************************** 
+ *   Filename :ProtocolType  
+ *   Date:2020/07/23 17:11:32 
+ *   Machinename:DESKTOP-28ROJ1R 
+ *   Created by: qlSun 
+ *   Description : 
+ * 
+ *   ChangeLog: 
+ *   2020/07/23 17:11:32: Created! 
+ ************************************************************************************/
 
 namespace CoreApi.Entity.Enums
 {
