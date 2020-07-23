@@ -15,6 +15,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreApi.Utils", "CoreApi.Ut
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreApi.Workflow", "CoreApi.Workflow\CoreApi.Workflow.csproj", "{8357E8D8-6B3D-44DD-B86D-5D18EE1E8C0B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreApi.Pattern", "CoreApi.Pattern\CoreApi.Pattern.csproj", "{7B5B69D3-C157-4837-87AE-A2F0C4C3DCCC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{8357E8D8-6B3D-44DD-B86D-5D18EE1E8C0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8357E8D8-6B3D-44DD-B86D-5D18EE1E8C0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8357E8D8-6B3D-44DD-B86D-5D18EE1E8C0B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B5B69D3-C157-4837-87AE-A2F0C4C3DCCC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B5B69D3-C157-4837-87AE-A2F0C4C3DCCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B5B69D3-C157-4837-87AE-A2F0C4C3DCCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B5B69D3-C157-4837-87AE-A2F0C4C3DCCC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

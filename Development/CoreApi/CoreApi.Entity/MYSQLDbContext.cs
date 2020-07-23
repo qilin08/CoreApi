@@ -13,10 +13,11 @@ namespace CoreApi.Entity
 
         }
 
+
+
+        #region DbSet Entity映射到数据库表
+
         public DbSet<Disease> Disease { get; set; }
-
-        #region Sys
-
         public DbSet<Sys_ConfigValues> Sys_ConfigValues { get; set; }
 
         #endregion

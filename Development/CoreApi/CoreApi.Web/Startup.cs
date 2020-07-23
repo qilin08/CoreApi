@@ -29,7 +29,6 @@ namespace CoreApi.Web
         {
             services.AddControllers();
 
-            services.AddScoped<IDemo, Demo>();
             services.AddScoped<IEmail, Email>();
 
             // 连接MySql数据库
