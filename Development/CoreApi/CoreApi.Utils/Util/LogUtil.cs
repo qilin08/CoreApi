@@ -16,7 +16,7 @@ using log4net;
 
 namespace CoreApi.Utils.Util
 {
-    public class LogUtil
+    public static class LogUtil
     {
         public static string GetLogFile()
         {

@@ -18,6 +18,7 @@ using CoreApi.Entity;
 using CoreApi.Entity.Category;
 using CoreApi.Entity.Dto;
 using CoreApi.Entity.Models;
+using CoreApi.Utils.Util;
 using Newtonsoft.Json;
 
 namespace CoreApi.Service.Email
@@ -152,6 +153,10 @@ namespace CoreApi.Service.Email
         /// <returns></returns>
         public Result GetEmailInfo()
         {
+            LogUtil.Info("测试封装日志工具！Info");
+            LogUtil.Debug("测试封装日志工具！Debug");
+            LogUtil.Error("测试封装日志工具！Error");
+            LogUtil.Warn("测试封装日志工具！Warn");
             var info = GetEmailAccountInfo();
 
             return new Result(info != null, info == null ? "获取邮箱相关信息失败，信息未配置！" : "", info);
