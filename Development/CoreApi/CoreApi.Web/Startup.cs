@@ -41,7 +41,8 @@ namespace CoreApi.Web
         {
             services.AddControllers();
 
-            services.AddScoped<IEmail, Email>();
+            //services.AddScoped<IEmail, Email>();
+            services.AddAppServices();//批量注册服务
 
             // 连接MySql数据库
             services.AddDbContextPool<MYSQLDbContext>(options => options
