@@ -19,7 +19,7 @@ namespace CoreApi.Web.Controllers.Email
     /// 邮件相关服务接口
     /// </summary>
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     public class EmailController : ControllerBase
     {
         private readonly IEmail _email;
@@ -33,7 +33,7 @@ namespace CoreApi.Web.Controllers.Email
         /// 邮箱自动登陆
         /// </summary>
         /// <returns></returns>
-        [HttpPost("[action]")]
+        [HttpPost]
         public Result EmailAutoLogin()
         {
             return _email.EmailAutoLogin();
@@ -43,7 +43,7 @@ namespace CoreApi.Web.Controllers.Email
         /// 设置邮箱登录相关信息
         /// </summary>
         /// <returns></returns>
-        [HttpPost("[action]")]
+        [HttpPost]
         public Result SetEmailInfo(EmailAccountInfo info)
         {
             return _email.SetEmailInfo(info);
@@ -53,7 +53,7 @@ namespace CoreApi.Web.Controllers.Email
         /// 获取邮箱登录相关信息
         /// </summary>
         /// <returns></returns>
-        [HttpGet("[action]")]
+        [HttpGet]
         public Result GetEmailInfo()
         {
             return _email.GetEmailInfo();
@@ -63,7 +63,7 @@ namespace CoreApi.Web.Controllers.Email
         /// 邮件发送
         /// </summary>
         /// <returns></returns>
-        [HttpPost("[action]")]
+        [HttpPost]
         public Result SendMail(EmailInfo info)
         {
             return _email.SendMail(info);

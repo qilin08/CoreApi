@@ -4,6 +4,12 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>bin\Debug\netcoreapp3.1\CoreApi.Web.xml</DocumentationFile>
+    <NoWarn>1701;1702;1591</NoWarn>
+    <OutputPath>bin\Debug\netcoreapp3.1\</OutputPath>
+  </PropertyGroup>
+
   <ItemGroup>
     <ProjectReference Include="..\CoreApi.Entity\CoreApi.Entity.csproj" />
     <ProjectReference Include="..\CoreApi.IService\CoreApi.IService.csproj" />
@@ -17,6 +23,7 @@
   <ItemGroup>
     <PackageReference Include="log4net.AspNetCore" Version="1.0.0" />
     <PackageReference Include="Microsoft.Extensions.Logging.Log4Net.AspNetCore" Version="3.1.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.5.0" />
   </ItemGroup>
 
   <ItemGroup>

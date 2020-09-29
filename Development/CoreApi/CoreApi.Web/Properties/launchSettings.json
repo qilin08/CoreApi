@@ -12,14 +12,14 @@
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "weatherforecast",
+      "launchUrl": "api",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
     "CoreApi": {
       "commandName": "Project",
-      "launchUrl": "weatherforecast",
+      "launchUrl": "api",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
