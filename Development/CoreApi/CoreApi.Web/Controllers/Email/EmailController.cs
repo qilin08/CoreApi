@@ -19,8 +19,8 @@ namespace CoreApi.Web.Controllers.Email
     /// 邮件相关服务接口
     /// </summary>
     [Produces("application/json")]
-    [ApiController]
     [Route("api/[controller]/[action]")]
+    [ApiController]
     public class EmailController : ControllerBase
     {
         private readonly IEmail _email;

@@ -15,7 +15,7 @@ namespace CoreApi.Web.System
         /// <param name="services"></param>
         public static void AddAppServices(this IServiceCollection services)
         {
-            var ts = Assembly.Load("CoreApi.IService").GetTypes().ToArray();
+            var ts = Assembly.Load("CoreApi.Service").GetTypes().ToArray();
             foreach (var item in ts.Where(s => !s.IsInterface))
             {
                 var interfaceType = item.GetInterfaces();
