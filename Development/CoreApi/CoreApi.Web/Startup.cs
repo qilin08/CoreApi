@@ -14,6 +14,7 @@ using System.Reflection;
 using CoreApi.Entity;
 using CoreApi.IService.Email;
 using CoreApi.Service.Email;
+using CoreApi.Web.System;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -77,6 +78,12 @@ namespace CoreApi.Web
                 var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
                 x.IncludeXmlComments(xmlPath);
             });
+
+            services.AddControllers()
+                .AddJsonOptions(configure =>
+                {
+                    configure.JsonSerializerOptions.Converters.Add(new DatetimeJsonConverter());
+                });
 
         }
 
