@@ -21,6 +21,8 @@ namespace CoreApi.Entity.Dto
 
         private object data;
 
+        private string code { get; set; }
+
         public Result()
         { }
 
@@ -46,6 +48,12 @@ namespace CoreApi.Entity.Dto
         {
             get { return data; }
             set { data = value; }
+        }
+
+        public string Code
+        {
+            get { return code; }
+            set { code = value; }
         }
 
         public Result(bool isSuccess, string message)

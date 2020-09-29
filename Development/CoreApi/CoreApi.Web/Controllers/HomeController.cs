@@ -17,6 +17,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CoreApi.Web.Controllers
 {
+    [Produces("application/json")]
     [ApiController]
     [Route("api/[controller]")]
     public class HomeController : ControllerBase
