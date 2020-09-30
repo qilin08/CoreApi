@@ -42,6 +42,7 @@ namespace CoreApi.Web
             services.AddControllers();
 
             //services.AddScoped<IEmail, Email>();
+            
             services.AddAppServices();//批量注册服务
 
             // 连接MySql数据库
@@ -60,13 +61,13 @@ namespace CoreApi.Web
             {
                 x.SwaggerDoc("v1", new OpenApiInfo
                 {
-                    Title = "My API",
+                    Title = "CoreAPI",
                     Version = "v1",
                     Description = "API文档描述",
                     Contact = new OpenApiContact
                     {
                         Email = "934860498@qq.com",
-                        Name = "测试项目",
+                        Name = "CoreAPI项目",
                         //Url = new Uri("http://t.abc.com/")
                     },
                     License = new OpenApiLicense
