@@ -98,18 +98,14 @@ export default {
 
     fnSaveInfo: function () {
       //Post
-      this.$ajax({
-        method: "post",
-        url: "api/Email/SetEmailInfo",
-        data: {
+      this.axios.post("api/Email/SetEmailInfo",{
           EmailAccount: this.EmailAccount,
           PassWord: this.PassWord,
           EmailType: this.EmailType,
           PickUpServer: this.PickUpServer,
           SendingServer: this.SendingServer,
           IsSSL: this.IsSSL === "1" ? true : false,
-        },
-      })
+        })
         .then(function (response) {
           console.log(response);
         })
