@@ -62,6 +62,11 @@ export default {
                     title: '首页'
                 },
                 {
+                    icon: 'el-icon-lx-mail',
+                    index: 'email/EmailAccount',
+                    title: '邮箱信息'
+                },
+                {
                     icon: 'el-icon-lx-cascades',
                     index: 'table',
                     title: '基础表格'
