@@ -92,10 +92,6 @@ export default {
         });
     },
 
-//     Vue.axios.get(api).then((response) => {
-//   console.log(response.data)
-// })
-
     fnSaveInfo: function () {
       //Post
       this.axios.post("api/Email/SetEmailInfo",{
@@ -108,12 +104,11 @@ export default {
         })
         .then(function (response) {
           console.log(response);
+          this.fnGetInfo();
         })
         .catch(function (err) {
           console.log(err);
         });
-
-      this.fnGetInfo();
     },
   },
 };
