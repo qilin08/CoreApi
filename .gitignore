@@ -355,3 +355,4 @@ MigrationBackup/
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
 /Development/h61_swhyzg/H6_SWHYZG.sln
+/Development/Sanchi-Vue/package-lock.json
