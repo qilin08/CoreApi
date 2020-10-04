@@ -104,7 +104,6 @@ export default {
         })
         .then(function (response) {
           console.log(response);
-          this.fnGetInfo();
         })
         .catch(function (err) {
           console.log(err);
