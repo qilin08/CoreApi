@@ -11,7 +11,9 @@ import './components/common/directives';
 import 'babel-polyfill';
 import axios from 'axios'
 import VueAxios from 'vue-axios'
+import md5 from 'js-md5'
 
+Vue.prototype.$md5 = md5
 Vue.use(VueAxios, axios)
 Vue.config.productionTip = false;
 Vue.use(VueI18n);

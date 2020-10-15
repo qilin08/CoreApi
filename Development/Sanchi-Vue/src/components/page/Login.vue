@@ -43,11 +43,31 @@ export default {
     },
     methods: {
         submitForm() {
+            var me=this;
             this.$refs.login.validate(valid => {
                 if (valid) {
-                    this.$message.success('登录成功');
+      //Post
+      this.axios.post("api/Auth/Login",{
+          UserName: this.param.username,
+          PassWord: this.$md5(this.param.password)
+        })
+        .then(function (response) {
+          if(response&&response.data&&response.data.isSuccess){
+              me.$message.success('登录成功');
+            //   localStorage.setItem('ms_username', this.param.username);
+            //   me.$router.push('/');
+          }else{
+              me.$message.error(response.data.message);
+          }
+        })
+        .catch(function (err) {
+          me.$message.error(err);
+          return false;
+        });
+                    // this.$message.success('登录成功');
                     localStorage.setItem('ms_username', this.param.username);
                     this.$router.push('/');
+
                 } else {
                     this.$message.error('请输入账号和密码');
                     console.log('error submit!!');

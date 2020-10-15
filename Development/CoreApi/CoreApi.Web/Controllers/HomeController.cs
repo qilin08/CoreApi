@@ -12,6 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using CoreApi.Entity;
+using CoreApi.Entity.Dto;
 using CoreApi.Entity.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -19,7 +20,7 @@ namespace CoreApi.Web.Controllers
 {
     [Produces("application/json")]
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     public class HomeController : ControllerBase
     {
         private readonly MYSQLDbContext _context;
@@ -29,16 +30,10 @@ namespace CoreApi.Web.Controllers
             _context = context;
         }
 
-        [HttpGet("[action]")]
+        [HttpGet]
         public string Index()
         {
             return string.Format("使用ASP.NET Core 3.x 构建 RESTful API - {0}",DateTime.Now);
-        }
-
-        [HttpGet("[action]")]
-        public List<Disease> GetDiseases()
-        {
-            return _context.Disease.ToList();
         }
     }
 }
