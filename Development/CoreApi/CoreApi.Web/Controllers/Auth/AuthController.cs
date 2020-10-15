@@ -13,7 +13,7 @@ namespace CoreApi.Web.Controllers.Auth
     /// <summary>
     /// 用户认证相关控制器
     /// </summary>
-    [Produces("application/json")]
+    //[Produces("application/json")]
     [Route("api/[controller]/[action]")]
     [ApiController]
     public class AuthController : ControllerBase
