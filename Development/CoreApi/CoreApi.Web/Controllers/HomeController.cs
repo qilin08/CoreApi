@@ -19,9 +19,9 @@ using Microsoft.AspNetCore.Mvc;
 namespace CoreApi.Web.Controllers
 {
     //[Produces("application/json")]
-    [ApiController]
-    [Route("api/[controller]/[action]")]
-    public class HomeController : ControllerBase
+    //[ApiController]
+    //[Route("api/[controller]/[action]")]
+    public class HomeController : ApiController
     {
         private readonly MYSQLDbContext _context;
 

@@ -14,9 +14,9 @@ namespace CoreApi.Web.Controllers.Auth
     /// 用户认证相关控制器
     /// </summary>
     //[Produces("application/json")]
-    [Route("api/[controller]/[action]")]
+    //[Route("api/[controller]/[action]")]
     [ApiController]
-    public class AuthController : ControllerBase
+    public class AuthController : ApiController
     {
         private readonly IUserMgr _userMgr;
 
