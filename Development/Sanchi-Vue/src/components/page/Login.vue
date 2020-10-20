@@ -9,12 +9,7 @@
                     </el-input>
                 </el-form-item>
                 <el-form-item prop="password">
-                    <el-input
-                        type="password"
-                        placeholder="password"
-                        v-model="param.password"
-                        @keyup.enter.native="submitForm()"
-                    >
+                    <el-input type="password" placeholder="password" v-model="param.password" @keyup.enter.native="submitForm()">
                         <el-button slot="prepend" icon="el-icon-lx-lock"></el-button>
                     </el-input>
                 </el-form-item>
@@ -29,53 +24,51 @@
 
 <script>
 export default {
-    data: function() {
+    data: function () {
         return {
             param: {
                 username: 'admin',
-                password: '123123',
+                password: '123123'
             },
             rules: {
                 username: [{ required: true, message: '请输入用户名', trigger: 'blur' }],
-                password: [{ required: true, message: '请输入密码', trigger: 'blur' }],
-            },
+                password: [{ required: true, message: '请输入密码', trigger: 'blur' }]
+            }
         };
     },
     methods: {
         submitForm() {
-            var me=this;
-            this.$refs.login.validate(valid => {
+            var me = this;
+            this.$refs.login.validate((valid) => {
                 if (valid) {
-      //Post
-      this.axios.post("api/Auth/Login",{
-          UserName: this.param.username,
-          PassWord: this.$md5(this.param.password)
-        })
-        .then(function (response) {
-          if(response&&response.data&&response.data.isSuccess){
-              me.$message.success('登录成功');
-            //   localStorage.setItem('ms_username', this.param.username);
-            //   me.$router.push('/');
-          }else{
-              me.$message.error(response.data.message);
-          }
-        })
-        .catch(function (err) {
-          me.$message.error(err);
-          return false;
-        });
-                    // this.$message.success('登录成功');
-                    localStorage.setItem('ms_username', this.param.username);
-                    this.$router.push('/');
-
+                    //Post
+                    this.axios
+                        .post('api/Auth/Login', {
+                            UserName: this.param.username,
+                            PassWord: this.$md5(this.param.password)
+                        })
+                        .then(function (response) {
+                            if (response && response.data && response.data.isSuccess) {
+                                  localStorage.setItem('ms_username', me.param.username);
+                                  localStorage.setItem('ms_password', me.$md5(me.param.password));
+                                  me.$router.push('/');
+                                  me.$message.success('登录成功');
+                            } else {
+                                me.$message.error(response.data.message);
+                            }
+                        })
+                        .catch(function (err) {
+                            me.$message.error(err);
+                            return false;
+                        });
                 } else {
                     this.$message.error('请输入账号和密码');
                     console.log('error submit!!');
                     return false;
                 }
             });
-        },
-    },
+        }
+    }
 };
 </script>
 
