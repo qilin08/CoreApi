@@ -81,6 +81,16 @@ namespace CoreApi.Web
                 x.IncludeXmlComments(xmlPath);
             });
 
+            services.AddEasyCaching(options =>
+            {
+                options.UseRedis(configure =>
+                {
+                    configure.DBConfig.Endpoints.Add(
+                        new EasyCaching.Core.Configurations.ServerEndPoint("localhost", 6379));
+                    configure.DBConfig.AllowAdmin = true;
+                }, "RedisExample");
+            });
+
             services.AddControllers()
                 .AddJsonOptions(configure =>
                 {
